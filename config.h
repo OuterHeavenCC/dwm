@@ -53,6 +53,10 @@ static const char *colors[][3]      = {
     [SchemeTag3]       = { orange, black,black },
     [SchemeTag4]       = { green, black, black },
     [SchemeTag5]       = { pink,  black, black },
+    [SchemeTag6]       = { yellow,  black, black },
+    [SchemeTag7]       = { blue,  black, black },
+    [SchemeTag8]       = { red,  black, black },
+    [SchemeTag9]       = { orange,  black, black },
     [SchemeLayout]     = { green, black, black }, 
     [SchemeBtnPrev]    = { green, black, black }, 
     [SchemeBtnNext]    = { yellow, black, black }, 
@@ -60,10 +64,11 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {" ", " ", " ", " ", " "};
+static char *tags[] = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
 
 static const int tagschemes[] = { SchemeTag1, SchemeTag2, SchemeTag3,
-                                  SchemeTag4, SchemeTag5
+                                  SchemeTag4, SchemeTag5, SchemeTag6,
+                                  SchemeTag7, SchemeTag8, SchemeTag9,
                                 };
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
@@ -204,6 +209,7 @@ static Key keys[] = {
     TAGKEYS(                        XK_egrave,                      6)
     TAGKEYS(                        XK_underscore,                  7)
     TAGKEYS(                        XK_ccedilla,                    8)
+    {MODKEY,                        XK_ccedilla,    view,   {.ui = ~0}},
     {
         MODKEY|ControlMask,           XK_q,      quit,           {0}
     },
@@ -264,6 +270,8 @@ static Key keys[] = {
     { 0,                            XK_Print,       spawn,  SHCMD("maimpick")},
     { MODKEY,                       XK_Print,       spawn,  SHCMD("dmenurecord")},
     { MODKEY|ShiftMask,             XK_Print,       spawn,  SHCMD("dmenurecord kill")},
+
+    { MODKEY,                       XK_exclam,      spawn,  SHCMD("telegram-desktop")},
 
 };
 
