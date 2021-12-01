@@ -2386,7 +2386,7 @@ void propertynotify(XEvent *e) {
 
 void quit(const Arg *arg) {
   if (arg->i == 0)
-    system("killall bar.sh");
+    system("killall chadbar");
 
   else if (arg->i)
     restart = 1;
