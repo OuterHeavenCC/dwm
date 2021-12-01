@@ -2385,22 +2385,8 @@ void propertynotify(XEvent *e) {
 }
 
 void quit(const Arg *arg) {
-  if (arg->i == 0)
-    system("killall chadbar");
-
-  else if (arg->i)
+  if (arg->i)
     restart = 1;
-
-  Monitor *m;
-  Client *c;
-  for (m = mons; m; m = m->next) {
-    if (m) {
-      for (c = m->stack; c; c = c->next)
-        if (c && HIDDEN(c))
-          show(c);
-    }
-  }
-
   running = 0;
 }
 
