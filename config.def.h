@@ -18,7 +18,7 @@ static       int smartgaps          = 0;        /* 1 means no outer gap when the
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails,display systray on the 1st monitor,False: display systray on last monitor*/
-static const int showsystray        = 1;     /* 0 means no systray */
+static const int showsystray        = 0;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 enum showtab_modes { showtab_never, showtab_auto, showtab_nmodes, showtab_always };
 static const int showtab            = showtab_auto;
@@ -211,9 +211,9 @@ static Key keys[] = {
     TAGKEYS(                        XK_ccedilla,                    8)
     {MODKEY,                        XK_ccedilla,    view,   {.ui = ~0}},
     {
-        MODKEY|ControlMask,           XK_q,      quit,           {0}
+        MODKEY|ControlMask,         XK_q,      quit,           {0}
     },
-    { MODKEY|ShiftMask,             XK_q,      quit,           {1} },
+    { MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
     { MODKEY|ShiftMask,             XK_h,      hidewin,        {0} },
     { MODKEY|ShiftMask,             XK_r,      restorewin,     {0} },
 
@@ -257,7 +257,7 @@ static Key keys[] = {
     { MODKEY,                       XK_F1,          spawn,  SHCMD("groff -mom /usr/local/share/dwm/larbs.mom -Tpdf | zathura -")},
     { MODKEY,                       XK_F2,          spawn,  SHCMD("dmenu_nfi")},
     { MODKEY,                       XK_F3,          spawn,  SHCMD("displayselect")},
-    { MODKEY,                       XK_F4,          spawn,  SHCMD("btop")},
+    { MODKEY,                       XK_F4,          spawn,  SHCMD(TERMINAL " -e btop")},
     { MODKEY,                       XK_F5,          spawn,  SHCMD("ssh-dmenu")},
     { MODKEY,                       XK_F6,          spawn,  SHCMD("torwrap")},
     { MODKEY,                       XK_F7,          spawn,  SHCMD("td-toggle")},
