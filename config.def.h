@@ -131,14 +131,12 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of jmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = {  "st", NULL }; // change this to your term
-static const char *rofi[] = {"rofi", "-show", "drun", NULL };
 static const char *xi[] = {"xbacklight", "-inc", "7", NULL};
 static const char *xd[] = {"xbacklight", "-dec", "7", NULL};
 
 static Key keys[] = {
     /* Window manager shortcuts */
     /* modifier                     key        function        argument */
-    { MODKEY,                       XK_c,      spawn,          {.v = rofi } },
     { MODKEY,                       XK_Return, spawn,          {.v = termcmd }},  
 
     {0, XF86MonBrightnessDown, spawn, {.v = xd}},
