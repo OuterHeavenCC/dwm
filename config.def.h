@@ -134,6 +134,7 @@ static const char *termcmd[]  = {  "st", NULL }; // change this to your term
 static const char *xi[] = {"xbacklight", "-inc", "7", NULL};
 static const char *xd[] = {"xbacklight", "-dec", "7", NULL};
 
+#include <X11/XF86keysym.h>
 static Key keys[] = {
     /* Window manager shortcuts */
     /* modifier                     key        function        argument */
@@ -270,6 +271,27 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_Print,       spawn,  SHCMD("dmenurecord kill")},
 
     { MODKEY,                       XK_exclam,      spawn,  SHCMD("telegram-desktop")},
+
+    { 0,                            XF86XK_AudioMute,                            spawn,   SHCMD("pamixer -t")},
+    { 0,                            XF86XK_AudioRaiseVolume,                     spawn,   SHCMD("pamixer --allow-boost -i 3")},
+    { 0,                            XF86XK_AudioLowerVolume,                     spawn,   SHCMD("pamixer --allow-boost -d 3")},
+    { 0,                            XF86XK_AudioPrev,                            spawn,   SHCMD("mpc prev")},
+    { 0,                            XF86XK_AudioNext,                            spawn,   SHCMD("mpc next")},
+    { 0,                            XF86XK_AudioPause,                           spawn,   SHCMD("mpc pause")},
+    { 0,                            XF86XK_AudioPlay,                            spawn,   SHCMD("mpc play")},
+    { 0,                            XF86XK_AudioStop,                            spawn,   SHCMD("mpc stop")},
+    { 0,                            XF86XK_AudioMedia,                           spawn,   SHCMD(TERMINAL " -e ncmpcpp")},
+    { 0,                            XF86XK_AudioMicMute,                         spawn,   SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle")},
+    { 0,                            XF86XK_PowerOff,                             spawn,   SHCMD("sysact")},
+    { 0,                            XF86XK_Calculator,                           spawn,   SHCMD(TERMINAL " -e bc -lq")},
+    { 0,                            XF86XK_Sleep,                                spawn,   SHCMD("doas -A zzz")},
+    { 0,                            XF86XK_WWW,                                  spawn,   SHCMD("$BROWSER")},
+    { 0,                            XF86XK_DOS,                                  spawn,   SHCMD(TERMINAL)},
+    { 0,                            XF86XK_ScreenSaver,                          spawn,   SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv")},
+    { 0,                            XF86XK_TaskPane,                             spawn,   SHCMD(TERMINAL " -e htop")},
+    { 0,                            XF86XK_Mail,                                 spawn,   SHCMD(TERMINAL " -e neomutt")},
+    { 0,                            XF86XK_MonBrightnessUp,                      spawn,   SHCMD("xbacklight -inc 10")},
+    { 0,                            XF86XK_MonBrightnessDown,                    spawn,   SHCMD("xbacklight -dec 10")},
 
 };
 
