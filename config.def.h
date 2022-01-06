@@ -226,6 +226,8 @@ static Key keys[] = {
     { MODKEY,                       XK_e,           spawn,  SHCMD(TERMINAL " -e neomutt")},
     { MODKEY|ShiftMask,             XK_e,           spawn,  SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ""~/.config/abook/addressbook")},
 
+    { MODKEY|ShiftMask,             XK_f,           spawn,  SHCMD(TERMINAL " -e br")},
+
     { MODKEY,                       XK_m,           spawn,  SHCMD(TERMINAL " -e ncmpcpp")},
     { MODKEY|ShiftMask,             XK_m,           spawn,  SHCMD("pamixer -t")},
 
