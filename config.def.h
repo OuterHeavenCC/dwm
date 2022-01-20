@@ -37,7 +37,7 @@ static const char dmenufont[]       = "FiraCode Nerd Font:size=10";
 static const int colorfultag        = 1;  /* 0 means use SchemeSel for selected non vacant tag */
 
 // theme
-#include "themes/gruvchad.h"
+#include "themes/nord.h"
 
 static const char *colors[][3]      = {
     /*               fg         bg         border   */
@@ -242,7 +242,7 @@ static Key keys[] = {
     { MODKEY,                       XK_s,           spawn,  SHCMD(TERMINAL " -e pulsemixer")},
     { MODKEY|ShiftMask,             XK_s,           spawn,  SHCMD("bmks")},
 
-    { MODKEY,                       XK_v,           spawn,  SHCMD("dmenuyt")},
+    { MODKEY,                       XK_v,           spawn,  SHCMD("ytfzf -D")},
 
     { MODKEY,                       XK_w,           spawn,  SHCMD("$BROWSER")},
     { MODKEY|ShiftMask,             XK_w,           spawn,  SHCMD("networkmanager_dmenu")},
@@ -267,6 +267,15 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_Print,       spawn,  SHCMD("dmenurecord kill")},
 
     { MODKEY,                       XK_exclam,      spawn,  SHCMD("telegram-desktop")},
+
+    /* Music mapping (AZERTY Keyboard) */
+    { MODKEY,                       XK_comma,       spawn,  SHCMD("mpc seek -5")},
+    { MODKEY,                       XK_semicolon,   spawn,  SHCMD("mpc seek +5")},
+
+	  { MODKEY,		                    XK_dead_circumflex,	      spawn,	SHCMD("mpc seek 0%") },
+	  { MODKEY|ShiftMask,	            XK_dead_circumflex,	      spawn,	SHCMD("mpc prev") },
+	  { MODKEY,         		          XK_dollar,	    spawn,	SHCMD("mpc repeat") },
+	  { MODKEY|ShiftMask,		          XK_dollar,	    spawn,	SHCMD("mpc next") },
 
     { 0,                            XF86XK_AudioMute,                            spawn,   SHCMD("pamixer -t")},
     { 0,                            XF86XK_AudioRaiseVolume,                     spawn,   SHCMD("pamixer --allow-boost -i 3")},
